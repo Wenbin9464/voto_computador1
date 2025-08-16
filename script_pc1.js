@@ -1,8 +1,8 @@
 // ======== Configurações ========
 const adminPassword = "sistemavoto"; 
-const chapas = ["Chapa A","Chapa B","Chapa C","Chapa D","Nulo"];
+const chapas = ["NOVA UNIÃO","CHAPA MÁXIMA","VOZ ATIVA","FÚRIA EM PISTA","Nulo"];
 let votos = JSON.parse(localStorage.getItem("votos_pc1")) || {
-  "Chapa A":0,"Chapa B":0,"Chapa C":0,"Chapa D":0,"Nulo":0
+  "NOVA UNIÃO":0,"CHAPA MÁXIMA":0,"VOZ ATIVA":0,"FÚRIA EM PISTA":0,"Nulo":0
 };
 let usedPasswords = JSON.parse(localStorage.getItem("usedPasswords_pc1")) || {};
 
@@ -592,10 +592,10 @@ function updateTable(){
 
 function getChapaColor(chapa){
   switch(chapa){
-    case "Chapa A": return "#0d6efd";
-    case "Chapa B": return "#198754";
-    case "Chapa C": return "#ffc107";
-    case "Chapa D": return "#6f42c1";
+    case "NOVA UNIÃO": return "#0d6efd";
+    case "CHAPA MÁXIMA": return "#198754";
+    case "VOZ ATIVA": return "#ffc107";
+    case "FÚRIA EM PISTA": return "#6f42c1";
     case "Nulo": return "#d32f2f";
     default: return "#000";
   }
@@ -604,7 +604,7 @@ function getChapaColor(chapa){
 // Atualizar gráfico em tempo real
 setInterval(()=>{
   votos=JSON.parse(localStorage.getItem("votos_pc1")) || {
-    "Chapa A":0,"Chapa B":0,"Chapa C":0,"Chapa D":0,"Nulo":0
+    "NOVA UNIÃO":0,"CHAPA MÁXIMA":0,"VOZ ATIVA":0,"FÚRIA EM PISTA":0,"Nulo":0
   };
   if(chart){
     chart.data.datasets[0].data=chapas.map(ch=>votos[ch]);
@@ -616,7 +616,7 @@ setInterval(()=>{
 // ======== Limpar votos com confirmação ========
 function limparVotos(){
   if(confirm("Tem certeza que deseja limpar todos os votos deste computador?")){
-    votos={"Chapa A":0,"Chapa B":0,"Chapa C":0,"Chapa D":0,"Nulo":0};
+    votos={"NOVA UNIÃO":0,"CHAPA MÁXIMA":0,"VOZ ATIVA":0,"FÚRIA EM PISTA":0,"Nulo":0};
     localStorage.setItem("votos_pc1",JSON.stringify(votos));
     if(chart){
       chart.data.datasets[0].data=chapas.map(ch=>votos[ch]);
